@@ -1,6 +1,13 @@
 """API SERIALIZERS"""
 from . import models
+from django.contrib.auth.models import User
 from rest_framework import serializers
+
+class UserModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=User
+        fields=("username", "password", "email")
+
 
 class OwnerModelSerializer(serializers.ModelSerializer):
     """Owner model serializer"""
